@@ -1,0 +1,145 @@
+﻿@model IEnumerable<CRUDClientes.Models.Entidades.Clientes>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Clientes</h1>
+
+<p>
+    <a asp-action="Create">Novo Cadastro</a>
+</p>
+<table class="table" id="tabelinha">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">
+                #
+            </th>
+            <th>
+                Nome
+            </th>
+            <th scope="col">
+                Documento
+            </th>
+            <th scope="col">
+                Tipo de Documento
+            </th>
+            <th>
+                Telefone
+            </th>
+            <th>
+
+            </th>
+            <th scope="col">
+                Endereço
+            </th>
+            <th>
+
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeCliente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Documento)
+                </td>
+                <td>
+                    @if (item.TipoDocumento == 1)
+                    {
+
+                        <label>CPF</label>
+                    }
+                    else
+                if (item.TipoDocumento == 2)
+                    {
+                        <label>CNPJ</label>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Celular)
+                </td>
+                <td>
+                    @if (item.TipoCelular == 1)
+                    {
+
+                        <label>Celular</label>
+                    }
+                    else
+                if (item.TipoCelular == 2)
+                    {
+                        <label>Residencial</label>
+                    }
+                    else
+                if (item.TipoCelular == 3)
+                    {
+                        <label>Comercial</label>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endereco)
+                </td>
+                <td>
+                    @if (item.TipoEndereco == 1)
+                    {
+
+                        <label>Cobrança</label>
+                    }
+                    else
+                      if (item.TipoEndereco == 2)
+                    {
+                        <label>Comercial</label>
+                    }
+                    else
+                       if (item.TipoEndereco == 3)
+                    {
+                        <label>Correspondência</label>
+                    }
+                    else
+                       if (item.TipoEndereco == 4)
+                    {
+                        <label>Entrega</label>
+                    }
+                    else
+                      if (item.TipoEndereco == 5)
+                    {
+                        <label>Residencial</label>
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.Id /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Deletar", "Delete", new { id = item.Id /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
+
+    <script>
+        $(document).ready(function () {
+            $('#tabelinha').DataTable({
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por página",
+                    "zeroRecords": "Nada encontrado",
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "infoEmpty": "Nenhum registro disponível",
+                    "infoFiltered": "(filtrado de _MAX_ registros no total)"
+                }
+            });
+        });
+    </script>
+}

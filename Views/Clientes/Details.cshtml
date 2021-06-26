@@ -1,0 +1,258 @@
+﻿@model CRUDClientes.Models.Entidades.Clientes
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Clientes</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NomeCliente)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NomeCliente)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Documento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Documento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TipoDocumento)
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.TipoDocumento == 1)
+            {
+
+                <label>CPF</label>
+            }
+            else
+           if (Model.TipoDocumento == 2)
+            {
+                <label>CNPJ</label>
+            }
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Celular)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Celular)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TipoCelular)
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.TipoCelular == 1)
+            {
+
+                <label>Celular</label>
+            }
+            else
+           if (Model.TipoCelular == 2)
+            {
+                <label>Residencial</label>
+            }
+            else
+           if (Model.TipoCelular == 3)
+            {
+                <label>Comercial</label>
+            }
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Celular2)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Celular2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TipoCelular2)
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.TipoCelular2 == 1)
+            {
+
+                <label>Celular</label>
+            }
+            else
+           if (Model.TipoCelular2 == 2)
+            {
+                <label>Residencial</label>
+            }
+            else
+           if (Model.TipoCelular2 == 3)
+            {
+                <label>Comercial</label>
+            }
+        </dd>
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Celular3)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Celular3)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TipoCelular3)
+        </dt>
+        <dd class="col-sm-10">
+            @* @if (Model.TipoCelular3 == 0)
+            {
+
+
+            }*@
+
+            @if (Model.TipoCelular3 == 1)
+            {
+
+                <label>Celular</label>
+            }
+            else
+         if (Model.TipoCelular3 == 2)
+            {
+                <label>Residencial</label>
+            }
+            else
+         if (Model.TipoCelular3 == 3)
+            {
+                <label>Comercial</label>
+            }
+
+        </dd>
+
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TipoEndereco)
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.TipoEndereco == 1)
+            {
+
+                <label>Cobrança</label>
+            }
+            else
+   if (Model.TipoEndereco == 2)
+            {
+                <label>Comercial</label>
+            }
+            else
+   if (Model.TipoEndereco == 3)
+            {
+                <label>Correspondência</label>
+            }
+            else
+   if (Model.TipoEndereco == 4)
+            {
+                <label>Entrega</label>
+            }
+            else
+   if (Model.TipoEndereco == 5)
+            {
+                <label>Residencial</label>
+            }
+        </dd>
+
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Endereco2)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Endereco2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TipoEndereco2)
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.TipoEndereco2 == 1)
+            {
+
+                <label>Cobrança</label>
+            }
+            else
+   if (Model.TipoEndereco2 == 2)
+            {
+                <label>Comercial</label>
+            }
+            else
+   if (Model.TipoEndereco2 == 3)
+            {
+                <label>Correspondência</label>
+            }
+            else
+   if (Model.TipoEndereco2 == 4)
+            {
+                <label>Entrega</label>
+            }
+            else
+   if (Model.TipoEndereco2 == 5)
+            {
+                <label>Residencial</label>
+            }
+        </dd>
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Endereco3)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Endereco3)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TipoEndereco3)
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.TipoEndereco3 == 1)
+            {
+
+                <label>Cobrança</label>
+            }
+            else
+    if (Model.TipoEndereco3 == 2)
+            {
+                <label>Comercial</label>
+            }
+            else
+    if (Model.TipoEndereco3 == 3)
+            {
+                <label>Correspondência</label>
+            }
+            else
+    if (Model.TipoEndereco3 == 4)
+            {
+                <label>Entrega</label>
+            }
+            else
+    if (Model.TipoEndereco3 == 5)
+            {
+                <label>Residencial</label>
+            }
+        </dd>
+    </dl>
+</div>
+
+
+
+<div>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Voltar</a>
+</div>

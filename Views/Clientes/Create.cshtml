@@ -1,0 +1,159 @@
+﻿@model CRUDClientes.Models.Entidades.Clientes
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+
+<h1>Create</h1>
+
+<h4>Clientes</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomeCliente" class="control-label"></label>
+                <input asp-for="NomeCliente" class="form-control" required />
+                <span asp-validation-for="NomeCliente" class="text-danger"></span>
+            </div>
+            &nbsp;
+            <div class="form-group">
+                <label asp-for="Documento" class="control-label"></label>
+                <input asp-for="Documento" class="form-control Doc" required />
+                <span asp-validation-for="Documento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoDocumento" class="control-label"></label>
+                <select asp-for="TipoDocumento" class="form-control" asp-items=@ViewBag.TiposDocumento required> </select>
+                <span asp-validation-for="TipoDocumento" class="text-danger"></span>
+            </div>
+            &nbsp;
+
+            <div class="form-group">
+                <label asp-for="Celular" class="control-label"></label>
+                <input asp-for="Celular" class="form-control" required />
+                <span asp-validation-for="Celular" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TipoCelular" class="control-label"></label>
+                <select asp-for="TipoCelular" class="form-control" asp-items=@ViewBag.TiposTelefone required> </select>
+                <span asp-validation-for="TipoCelular" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group">
+                <label asp-for="Celular2" class="control-label"></label>
+                <input asp-for="Celular2" class="form-control" />
+                <span asp-validation-for="Celular2" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TipoCelular2" class="control-label"></label>
+                <select asp-for="TipoCelular2" class="form-control" asp-items=@ViewBag.TiposTelefone2> </select>
+                <span asp-validation-for="TipoCelular2" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group">
+                <label asp-for="Celular3" class="control-label"></label>
+                <input asp-for="Celular3" class="form-control" />
+                <span asp-validation-for="Celular3" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TipoCelular3" class="control-label"></label>
+                <select asp-for="TipoCelular3" class="form-control" asp-items=@ViewBag.TiposTelefone3> </select>
+                <span asp-validation-for="TipoCelular3" class="text-danger"></span>
+            </div>
+
+            &nbsp;
+
+            <div class="form-group">
+                <label asp-for="Endereco" class="control-label"></label>
+                <input asp-for="Endereco" class="form-control" required />
+                <span asp-validation-for="Endereco" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TipoEndereco" class="control-label"></label>
+                <select asp-for="TipoEndereco" class="form-control" asp-items=@ViewBag.TiposEndereco required></select>
+                <span asp-validation-for="TipoEndereco" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group">
+                <label asp-for="Endereco2" class="control-label"></label>
+                <input asp-for="Endereco2" class="form-control" />
+                <span asp-validation-for="Endereco2" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TipoEndereco2" class="control-label"></label>
+                <select asp-for="TipoEndereco2" class="form-control" asp-items=@ViewBag.TiposEndereco2></select>
+                <span asp-validation-for="TipoEndereco2" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group">
+                <label asp-for="Endereco3" class="control-label"></label>
+                <input asp-for="Endereco3" class="form-control" />
+                <span asp-validation-for="Endereco3" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TipoEndereco3" class="control-label"></label>
+                <select asp-for="TipoEndereco3" class="form-control" asp-items=@ViewBag.TiposEndereco3></select>
+                <span asp-validation-for="TipoEndereco3" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    <script>
+
+        var options = {
+            onKeyPress: function (cpf, ev, el, op) {
+                var masks = ['000.000.000-000', '00.000.000/0000-00'];
+                $('.Doc').mask((cpf.length > 14) ? masks[1] : masks[0], op);
+            }
+        }
+
+        $('.Doc').length > 11 ? $('.Doc').mask('00.000.000/0000-00', options) : $('.Doc').mask('000.000.000-00#', options);
+
+    </script>
+    <script>
+            $(document).ready(function () {
+                var $CampoCelular = $("#Celular");
+                $CampoCelular.mask('(00)00000-0000', { reverse: false });
+
+                var $CampoCelular2 = $("#Celular2");
+                $CampoCelular2.mask('(00)00000-0000', { reverse: false });
+
+                var $CampoCelular3 = $("#Celular3");
+                $CampoCelular3.mask('(00)00000-0000', { reverse: false });
+            });
+        </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
